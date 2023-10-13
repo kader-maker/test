@@ -1,6 +1,6 @@
-FROM node:14
+FROM node:18.18-alpine
 
-WORKDIR /bezkoder-api
+WORKDIR /Pluma-api
 COPY package.json .
 RUN npm install
 COPY . .

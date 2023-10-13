@@ -1,7 +1,7 @@
 # Stage 1
-FROM node:14 as build-stage
+FROM node:18-alpine as build-stage
 
-WORKDIR /bezkoder-ui
+WORKDIR /Pluma-ui
 COPY package.json .
 RUN npm install
 COPY . .
@@ -12,9 +12,9 @@ ENV REACT_APP_API_BASE_URL=$REACT_APP_API_BASE_URL
 RUN npm run build
 
 # Stage 2
-FROM nginx:1.17.0-alpine
+FROM nginx:1.24.0-alpine
 
-COPY --from=build-stage /bezkoder-ui/build /usr/share/nginx/html
+COPY --from=build-stage /Pluma-ui/build /usr/share/nginx/html
 EXPOSE $REACT_DOCKER_PORT
 
 CMD nginx -g 'daemon off;'

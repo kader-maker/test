@@ -13,8 +13,8 @@
     "api",
     "mongodb"
   ],
-  "author": "bezkoder",
-  "license": "ISC",
+  "author": "Pluma",
+  "license": "MELTAK",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
