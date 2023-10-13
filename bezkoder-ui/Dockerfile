@@ -1,7 +1,7 @@
 # Stage 1
 FROM node:18-alpine as build-stage
 
-WORKDIR /Pluma-ui
+WORKDIR /bezkoder
 COPY package.json .
 RUN npm install
 COPY . .
@@ -14,7 +14,7 @@ RUN npm run build
 # Stage 2
 FROM nginx:1.24.0-alpine
 
-COPY --from=build-stage /Pluma-ui/build /usr/share/nginx/html
+COPY --from=build-stage /bezkoder/build /usr/share/nginx/html
 EXPOSE $REACT_DOCKER_PORT
 
 CMD nginx -g 'daemon off;'
